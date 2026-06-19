@@ -8,8 +8,6 @@
         <meta name="theme-color" content="#8f21d1">
         <link rel="icon" href="https://luminon.top/A7.png" type="image/png"/>
         <meta property="og:title" content="Anyar's Stock GAG2">
-        <link rel="icon" href="https://luminon.top/A7.png" type="image/png"/>
-        <meta property="og:title" content="Grow a Garden Stock Predictor — Lumin Hub">
         <meta property="og:image" content="https://luminon.top/A7.png">
         <link rel="preconnect" href="https://tr.rbxcdn.com" crossorigin>
         <link rel="stylesheet" href="a.css">
@@ -23,12 +21,33 @@
                 box-sizing: border-box;
             }
 
+            /* 1. Le style global (Fonctionne sur PC ET Mobile) */
             body {
-                background: #000;
-                color: #fff;
+                background-color: #0b0616;
+                color: #e2e8f0;
                 font-family: 'Fredoka', sans-serif;
                 min-height: 100vh;
                 overflow-x: hidden;
+                position: relative;
+            }
+
+            /* Cercles lumineux identiques à la page d'accueil */
+            .glow-bg {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                background: rgba(143, 33, 209, 0.15);
+                filter: blur(120px);
+                border-radius: 50%;
+                z-index: 0;
+            }
+            .glow-1 { top: -100px; left: -100px; }
+            .glow-2 { bottom: 200px; right: -100px; }
+
+            /* Ajustement pour que le contenu passe au-dessus du fond lumineux */
+            main, header, .fu {
+                position: relative;
+                z-index: 1;
             }
 
             ::-webkit-scrollbar {
@@ -65,7 +84,6 @@
                     opacity: 0;
                     transform: translateY(16px);
                 }
-
                 to {
                     opacity: 1;
                     transform: none;
@@ -163,242 +181,64 @@
 
             @media (max-width: 900px) {
                 .shop-body {
-                    grid-template-columns:repeat(2,1fr);
+                    grid-template-columns: repeat(2,1fr);
                 }
             }
 
+            /* 2. Styles UNIQUEMENT pour les mobiles */
             @media (max-width: 560px) {
                 .shop-body {
-                    grid-template-columns:1fr;
+                    grid-template-columns: 1fr;
                 }
-            }
-
-            .row {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                padding: 12px;
-                border-radius: 14px;
-                background: linear-gradient(180deg,#7b4f29,#67411f);
-                border: 2px solid #43290f;
-                box-shadow: inset 0 2px 0 rgba(255,255,255,.10), 0 3px 6px rgba(0,0,0,.3);
-            }
-
-            .row .top {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .iconbox {
-                flex: 0 0 auto;
-                width: 64px;
-                height: 64px;
-                border-radius: 11px;
-                background: radial-gradient(circle at 50% 42%, #4a2f17, #2c1a0c);
-                border: 2px solid #1e1108;
-                position: relative;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .iconbox .sun {
-                position: absolute;
-                width: 150%;
-                height: 150%;
-                opacity: .5;
-                animation: spin 20s linear infinite;
-            }
-
-            @keyframes spin {
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-
-            .iconbox .ico {
-                position: relative;
-                width: 80%;
-                height: 80%;
-                object-fit: contain;
-                filter: drop-shadow(0 2px 3px rgba(0,0,0,.55));
-            }
-
-            .mid {
-                flex: 1 1 auto;
-                min-width: 0;
-                padding-right: 60px;
-            }
-
-            .mid .name {
-                color: #fff7e8;
-                font-size: 19px;
-                line-height: 1.02;
-                word-break: break-word;
-            }
-
-            .mid .stock {
-                color: #cdbfae;
-                font-family: 'Fredoka';
-                font-weight: 600;
-                font-size: 13px;
-                margin-top: 3px;
-            }
-
-            .bottom {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 8px;
-                border-top: 2px solid rgba(0,0,0,.18);
-                padding-top: 8px;
-            }
-
-            .price {
-                color: #5dff52;
-                font-family: 'Titan One',cursive;
-                font-size: 20px;
-                line-height: 1;
-            }
-
-            .next-badge {
-                position: absolute;
-                top: 10px;
-                right: 12px;
-                color: #5dff52;
-                font-family: 'Fredoka';
-                font-weight: 700;
-                font-size: 13px;
-                text-shadow: 0 2px 0 rgba(0,0,0,.4);
-                white-space: nowrap;
-            }
-
-            .next-badge.none {
-                color: #d8c0c0;
-                opacity: .7;
-                font-size: 11px;
-            }
-
-            .rar {
-                font-family: 'Titan One',cursive;
-                font-size: 14px;
-                color: #fff;
-                padding: 5px 12px;
-                border-radius: 9px;
-                border: 2px solid #19120a;
-                box-shadow: inset 0 2px 0 rgba(255,255,255,.35);
-                white-space: nowrap;
-            }
-
-            .tabbtn {
-                font-family: 'Titan One',cursive;
-                font-size: 18px;
-                letter-spacing: .02em;
-                padding: 9px 26px;
-                border-radius: 12px;
-                border: 3px solid #19120a;
-                color: #eee;
-                cursor: pointer;
-                background: linear-gradient(180deg,#4b4b55,#34343c);
-                box-shadow: inset 0 2px 0 rgba(255,255,255,.18);
-            }
-
-            .tabbtn.active {
-                background: linear-gradient(180deg,#74c043,#549a2c);
-                color: #f3ffd9;
-            }
-
-            @media (max-width: 560px) {
                 .head-title {
-                    font-size:22px
+                    font-size: 22px;
                 }
-
                 .tabrow {
                     gap: 8px;
                     padding: 0 6px;
-                    width: 100%
+                    width: 100%;
                 }
-
                 .tabbtn {
                     flex: 1 1 0;
                     min-width: 0;
                     padding: 11px 6px;
                     font-size: 14px;
                     white-space: nowrap;
-                    border-width: 2px
+                    border-width: 2px;
                 }
-
                 .shop {
-                    border-width: 2px
+                    border-width: 2px;
                 }
-
                 .shop-head {
-                    padding: 10px 12px
+                    padding: 10px 12px;
                 }
-
                 .shop-body {
                     padding: 10px;
-                    gap: 10px
+                    gap: 10px;
                 }
-
                 .row {
                     padding: 10px;
-                    border-radius: 12px
+                    border-radius: 12px;
                 }
-
                 .iconbox {
                     width: 52px;
-                    height: 52px
+                    height: 52px;
                 }
-
                 .mid {
-                    padding-right: 46px
+                    padding-right: 46px;
                 }
-
                 .mid .name {
-                    font-size: 16px
+                    font-size: 16px;
                 }
-
                 .price {
-                    font-size: 18px
+                    font-size: 18px;
                 }
-
                 .next-badge {
-                    font-size: 12px
+                    font-size: 12px;
                 }
-
                 .rar {
                     font-size: 12px;
-                    padding: 4px 9px
-                }
-                /* À insérer dans la balise <style> existante */
-                body {
-                    background-color: #0b0616 !important;
-                    color: #e2e8f0 !important;
-                    position: relative;
-                    min-height: 100vh;
-                }
-
-/* Cercles lumineux identiques à la page d'accueil */
-                .glow-bg {
-                    position: absolute;
-                    width: 400px;
-                    height: 400px;
-                    background: rgba(143, 33, 209, 0.15);
-                    filter: blur(120px);
-                    border-radius: 50%;
-                    z-index: 0;
-                }
-                .glow-1 { top: -100px; left: -100px; }
-                .glow-2 { bottom: 200px; right: -100px; }
-
-/* Ajustement pour que les cartes restent bien lisibles par-dessus le fond */
-                main, header, .fu {
-                    position: relative;
-                    z-index: 1;
+                    padding: 4px 9px;
                 }
             }
         </style>
