@@ -1,9 +1,11 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/accueil", "destination": "/index.html" },
+    { "source": "/accueil", "destination": "/guilde.html" },
     { "source": "/predictor", "destination": "/a.html" },
-    { "source": "/index.html", "destination": "/accueil" },
-    { "source": "/a.html", "destination": "/predictor" }
+    { "source": "/a", "destination": "/a.html" }
+  ],
+  "redirects": [
+    { "source": "/a", "destination": "/predictor", "permanent": true }
   ]
 }
